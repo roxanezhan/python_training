@@ -1,4 +1,3 @@
-# этот скрипт пишет разработчик по вспомогательным методам
 from selenium import webdriver
 
 
@@ -6,6 +5,10 @@ class Application:
     def __int__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(60)
+
+    def open_home_page(self):
+        wd = self.wd
+        wd.get("http://localhost/addressbook/")
 
     def login(self, username, password):
         wd = self.wd
@@ -17,10 +20,6 @@ class Application:
         wd.find_element(By.NAME, "pass").clear()
         wd.find_element(By.NAME, "pass").send_keys(password)
         wd.find_element(By.XPATH, "//input[@value='Login']").click()
-
-    def open_home_page(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/")
 
     def open_groups_page(self):
         wd = self.wd

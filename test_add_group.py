@@ -1,5 +1,3 @@
-# этот скрипт пишет разработчик по тестам
-
 # -*- coding: utf-8 -*-
 import pytest
 from group import Group
@@ -8,9 +6,9 @@ from application import Application
 
 # если написать "@pytest.fixture", то наша функция из простой функции превращается в фикстуру
 @pytest.fixture
-def app():
+def app(request):
     fixture = Application()
-    request.addfinalyzer(fixture.destroy)
+    request.addfinalizer(fixture.destroy)
     return fixture
 
 
