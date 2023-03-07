@@ -1,8 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 
 class Application:
-    def __int__(self):
+    def __init__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(60)
 
